@@ -124,7 +124,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
                                           status.getReasonPhrase());
             }
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             head.releaseConnection();
@@ -166,7 +166,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
                                                   status.getReasonPhrase());
             }
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             put.releaseConnection();
@@ -195,7 +195,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
                         status.getReasonPhrase());
             }
         } catch (final Exception e) {
-            LOGGER.error("Error making or building PUT request.", e);
+            LOGGER.error("Error making or building PUT request: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             put.releaseConnection();
@@ -225,7 +225,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
                                                   status.getReasonPhrase());
             }
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             put.releaseConnection();
@@ -254,7 +254,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
                         status.getReasonPhrase());
             }
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             post.releaseConnection();
@@ -351,7 +351,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
             }
 
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: ", e.getMessage());
             throw new FedoraException(e);
         } finally {
             post.releaseConnection();
@@ -382,7 +382,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
             }
             LOGGER.debug("Committed transaction {}", TX_ID.get());
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             post.releaseConnection();
@@ -413,7 +413,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
 
             LOGGER.debug("Rolled back transaction {}", TX_ID.get());
         } catch (final Exception e) {
-            LOGGER.error("could not encode URI parameter", e);
+            LOGGER.error("Could not encode URI parameter: {}", e.getMessage());
             throw new FedoraException(e);
         } finally {
             post.releaseConnection();
