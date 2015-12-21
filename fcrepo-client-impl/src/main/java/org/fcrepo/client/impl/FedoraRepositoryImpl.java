@@ -153,7 +153,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
             final int statusCode = status.getStatusCode();
 
             if (statusCode == SC_CREATED) {
-                return getDatastream(prependTransactionId(path));
+                return getDatastream(path);
             } else if (statusCode == SC_FORBIDDEN) {
                 LOGGER.error("request to create resource {} is not authorized.", uri);
                 throw new ForbiddenException("request to create resource " + uri + " is not authorized.");
@@ -185,7 +185,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
             final int statusCode = status.getStatusCode();
 
             if (statusCode == SC_CREATED) {
-                return getDatastream(prependTransactionId(path));
+                return getDatastream(path);
             } else if (statusCode == SC_FORBIDDEN) {
                 LOGGER.error("request to create resource {} is not authorized.", uri);
                 throw new ForbiddenException("request to create resource " + uri + " is not authorized.");
@@ -212,7 +212,7 @@ public class FedoraRepositoryImpl implements FedoraRepository {
             final int statusCode = status.getStatusCode();
 
             if (statusCode == SC_CREATED) {
-                return getObject(prependTransactionId(path));
+                return getObject(path);
             } else if (statusCode == SC_FORBIDDEN) {
                 LOGGER.error("request to create resource {} is not authorized.", uri);
                 throw new ForbiddenException("request to create resource " + uri + " is not authorized.");
@@ -264,18 +264,18 @@ public class FedoraRepositoryImpl implements FedoraRepository {
     @Override
     public FedoraDatastream findOrCreateDatastream(final String path) throws FedoraException {
         try {
-            return getDatastream(prependTransactionId(path));
+            return getDatastream(path);
         } catch ( NotFoundException ex ) {
-            return createDatastream(prependTransactionId(path), null);
+            return createDatastream(path, null);
         }
     }
 
     @Override
     public FedoraObject findOrCreateObject(final String path) throws FedoraException {
         try {
-            return getObject(prependTransactionId(path));
+            return getObject(path);
         } catch ( NotFoundException ex ) {
-            return createObject(prependTransactionId(path));
+            return createObject(path);
         }
     }
 
